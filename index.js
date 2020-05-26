@@ -19,12 +19,11 @@ $(function(){
         });
     });
     $("#past_reg_y").on("click", function() {
-        $("#div_documentation").hide();
+        $("#span_documentation").hide();
         $("#div_mail").fadeIn(fadeSpeed);
     });
     $("#past_reg_n").on("click", function() {
-        $("#div_documentation").fadeIn(fadeSpeed, function() {
-            $("#div_mail").fadeIn(fadeSpeed);
-        });
+        $("#span_documentation").show();
+        $("#div_mail").fadeIn(fadeSpeed);
     });
 });
