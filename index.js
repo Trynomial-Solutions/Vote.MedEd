@@ -4,12 +4,12 @@ $(function(){
     $("#current_reg_y").on("click", function() {
         $("#div_absent_app").fadeIn(fadeSpeed);
         $("#div_check_reg").hide();
-        $("#div_notregged div").hide();
+        $("#div_notregged .card").hide();
     });
     $("#current_reg_u").on("click", function() {
         $("#div_absent_app").hide();
         $("#div_check_reg").fadeIn(fadeSpeed);
-        $("#div_notregged div").hide();
+        $("#div_notregged .card").hide();
     });
     $("#current_reg_n").on("click", function() {
         $("#div_absent_app").hide();
