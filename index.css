@@ -24,4 +24,14 @@ footer, header {
 h1 {
     /* henry ford formatting */
     font-variant: small-caps;
+    font-family: 'dk_formosaregular', Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: 0.1em;
+}
+
+@font-face {
+    font-family: 'dk_formosaregular';
+    src: url('font/dk_formosa-webfont.woff2') format('woff2'),
+         url('font/dk_formosa-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }

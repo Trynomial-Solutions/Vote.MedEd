@@ -15,7 +15,7 @@ $(function(){
         $("#div_absent_app").hide();
         $("#div_check_reg").hide();
         $("#div_reg_app").fadeIn(fadeSpeed, function() {
-            $("#div_past_reg").fadeIn(fadeSpeed);
+            $("#div_past_reg").fadeIn(fadeSpeed/2);
         });
     });
     $("#past_reg_y").on("click", function() {
@@ -23,7 +23,7 @@ $(function(){
         $("#div_mail").fadeIn(fadeSpeed);
     });
     $("#past_reg_n").on("click", function() {
-        $("#span_documentation").show();
+        $("#span_documentation").fadeIn(fadeSpeed);
         $("#div_mail").fadeIn(fadeSpeed);
     });
 });
