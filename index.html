@@ -23,65 +23,79 @@
     <div class="container">
       <h1>Residents Vote!</h1>
       <form id="mainform">
-        <div id="div_current_reg" class="card w-50">
-          <div class="card-body">
-            <p>Are you currently registered to vote in Michigan?</p>
-            <div class="btn-group" role="group">
-              <button type="button" id="current_reg_y" class="btn btn-primary">Yes</button>
-              <button type="button" id="current_reg_n" class="btn btn-primary">No</button>
-              <button type="button" id="current_reg_u" class="btn btn-primary">Unsure</button>
-            </div>
-          </div>
-        </div>
-        <div id="div_check_reg" class="card w-50">
-          <div class="card-body">
-            <p>Please <a href="https://mvic.sos.state.mi.us/" target="_blank">check your registration</a>, then return to this app</p>
-          </div>
-        </div>
-        <div id="div_absent_app" class="card w-50">
-          <div class="card-body">
-            <p>Please complete an <a href="https://www.michigan.gov/documents/AbsentVoterBallot_105377_7.pdf" target="_blank">Absent Voter Ballot Application <i class="fas fa-file-pdf"></i></a></p>
-            <ol>
-              <li>Enter your information in Section 1</li>
-              <li>Check &quot;Both 2020 Elections&quot; and &quot;Future Elections&quot; in Section 2</li>
-              <li>Sign and date</li>
-              <li>e-mail or mail to <a href="https://mvic.sos.state.mi.us/Clerk" target="_blank">your clerk</a></li>
-            </ol>
-          </div>
-        </div>
-        <div id="div_notregged">
-          <div id="div_reg_app" class="card w-50">
-            <div class="card-body">
-              <p>Please complete a <a href="https://www.michigan.gov/documents/MIVoterRegistration_97046_7.pdf" target="_blank">Voter Registration Application <i class="fas fa-file-pdf"></i></a></p>
-              <ul><li>Check &quot;I want to vote absentee...&quot; at the bottom of the personal information section on page 2</li></ul>
-            </div>
-          </div>
-          <div id="div_past_reg" class="card w-50">
-            <div class="card-body">
-              <p>In the past, have you ever been registered to vote in Michigan?</p>
-              <div class="btn-group" role="group">
-                <button type="button" id="past_reg_y" class="btn btn-primary">Yes</button>
-                <button type="button" id="past_reg_n" class="btn btn-primary">No/Unsure</button>
+        <div class="row">
+          <div id="div_current_reg" class="col-md-6">
+            <div class="card">
+              <div class="card-body">
+                <p>Are you currently registered to vote in Michigan?</p>
+                <div class="btn-group" role="group">
+                  <button type="button" id="current_reg_y" class="btn btn-primary">Yes</button>
+                  <button type="button" id="current_reg_n" class="btn btn-primary">No</button>
+                  <button type="button" id="current_reg_u" class="btn btn-primary">Unsure</button>
+                </div>
               </div>
             </div>
           </div>
-          <div id="div_documentation" class="card w-50">
-            <div class="card-body">
-              <p>Enclose a <strong>copy</strong> of <strong>any one of the following</strong> with your application.</p>
-              <ul>
-                <li>Driver's license from any state</li>
-                <li>State ID card from any state</li>
-                <li>Paycheck stub</li>
-                <li>Utility bill</li>
-                <li>Bank statement</li>
-                <li>A government document</li>
-              </ul>
-              <p>Please make sure this document lists your name and address.</p>
+          <div id="div_check_reg" class="col-md-6">
+            <div class="card">
+              <div class="card-body">
+                <p>Please <a href="https://mvic.sos.state.mi.us/" target="_blank">check your registration</a>, then return to this app</p>
+              </div>
             </div>
           </div>
-          <div id="div_mail" class="card w-50">
-            <div class="card-body">
-              <p>Mail the completed application to <a href="https://mvic.sos.state.mi.us/Clerk" target="_blank">your clerk</a></p>
+          <div id="div_absent_app" class="col-md-6">
+            <div class="card">
+              <div class="card-body">
+                <p>Please complete an <a href="https://www.michigan.gov/documents/AbsentVoterBallot_105377_7.pdf" target="_blank">Absent Voter Ballot Application <i class="fas fa-file-pdf"></i></a></p>
+                <ol>
+                  <li>Enter your information in Section 1</li>
+                  <li>Check &quot;Both 2020 Elections&quot; and &quot;Future Elections&quot; in Section 2</li>
+                  <li>Sign and date</li>
+                  <li>e-mail or mail to <a href="https://mvic.sos.state.mi.us/Clerk" target="_blank">your clerk</a></li>
+                </ol>
+              </div>
+            </div>
+          </div>
+          <div id="div_reg_app" class="col-md-6 noregdiv">
+            <div class="card">
+              <div class="card-body">
+                <p>Please complete a <a href="https://www.michigan.gov/documents/MIVoterRegistration_97046_7.pdf" target="_blank">Voter Registration Application <i class="fas fa-file-pdf"></i></a></p>
+                <ul><li>Check &quot;I want to vote absentee...&quot; at the bottom of the personal information section on page 2</li></ul>
+              </div>
+            </div>
+          </div>
+          <div id="div_past_reg" class="col-md-6 noregdiv">
+            <div class="card">
+              <div class="card-body">
+                <p>In the past, have you ever been registered to vote in Michigan?</p>
+                <div class="btn-group" role="group">
+                  <button type="button" id="past_reg_y" class="btn btn-primary">Yes</button>
+                  <button type="button" id="past_reg_n" class="btn btn-primary">No/Unsure</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="div_documentation" class="col-md-6 noregdiv">
+            <div class="card">
+              <div class="card-body">
+                <p>Enclose a <strong>copy</strong> of <strong>any one of the following</strong> with your application.</p>
+                <ul>
+                  <li>Driver's license from any state</li>
+                  <li>State ID card from any state</li>
+                  <li>Paycheck stub</li>
+                  <li>Utility bill</li>
+                  <li>Bank statement</li>
+                  <li>A government document</li>
+                </ul>
+                <p>Please make sure this document lists your name and address.</p>
+              </div>
+            </div>
+          </div>
+          <div id="div_mail" class="col-md-6 noregdiv">
+            <div class="card">
+              <div class="card-body">
+                <p>Mail the completed application to <a href="https://mvic.sos.state.mi.us/Clerk" target="_blank">your clerk</a></p>
+              </div>
             </div>
           </div>
         </div>

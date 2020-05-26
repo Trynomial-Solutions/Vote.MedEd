@@ -1,4 +1,9 @@
-#div_check_reg, #div_absent_app, #div_notregged, #div_past_reg, #div_documentation, #div_mail {
+#div_check_reg, #div_absent_app {
+    display: none;
+}
+
+.noregdiv {
+    /* these are the divs that show when "not registered" is selected in q1 - #div_reg_app, #div_past_reg, #div_documentation, #div_mail */
     display: none;
 }
 

@@ -4,18 +4,16 @@ $(function(){
     $("#current_reg_y").on("click", function() {
         $("#div_absent_app").fadeIn(fadeSpeed);
         $("#div_check_reg").hide();
-        $("#div_notregged .card").hide();
+        $(".noregdiv").hide();
     });
     $("#current_reg_u").on("click", function() {
         $("#div_absent_app").hide();
         $("#div_check_reg").fadeIn(fadeSpeed);
-        $("#div_notregged .card").hide();
+        $(".noregdiv").hide();
     });
     $("#current_reg_n").on("click", function() {
         $("#div_absent_app").hide();
         $("#div_check_reg").hide();
-        $("#div_notregged").show();
-        $("#div_past_reg .btn-group").show();
         $("#div_reg_app").fadeIn(fadeSpeed, function() {
             $("#div_past_reg").fadeIn(fadeSpeed);
         });
