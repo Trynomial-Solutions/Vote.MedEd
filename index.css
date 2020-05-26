@@ -7,12 +7,21 @@
     display: none;
 }
 
+.instructiondiv {
+    background-color: #c9ebf2;
+}
+
 .btn-primary {
     background-color: #003e74;
     border-color: #003e74;
 }
 
-footer {
+footer, header {
     background-color: #003e74;
     color: #ffffff;
+}
+
+h1 {
+    /* henry ford formatting */
+    font-variant: small-caps;
 }

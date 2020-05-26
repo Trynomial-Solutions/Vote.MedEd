@@ -13,15 +13,17 @@
     <title>Hello, world!</title>
   </head>
   <body>
-    <header class="container-fluid align-items-center" style="background-color: #003e74; color: #ffffff;">
+    <header class="container-fluid align-items-center mb-4">
       <div class="row">
-        <div class="col-2">
-          <img src="img/HFHS ovalwhite.png" alt="Henry Ford Health System" class="img-fluid py-3" />
+        <div class="col-md-2">
+          <img src="img/HFHS ovalwhite.png" alt="Henry Ford Health System" class="img-fluid py-3 px-5 px-md-0" />
+        </div>
+        <div class="col text-center my-auto">
+          <h1>Residents Vote!</h1>
         </div>
       </div>
     </header>
     <div class="container">
-      <h1>Residents Vote!</h1>
       <form id="mainform">
         <div class="row">
           <div id="div_current_reg" class="col-md-6">
@@ -38,14 +40,14 @@
           </div>
           <div id="div_check_reg" class="col-md-6">
             <div class="card">
-              <div class="card-body">
+              <div class="card-body instructiondiv">
                 <p>Please <a href="https://mvic.sos.state.mi.us/" target="_blank">check your registration <i class="fas fa-external-link-alt"></i></a>, then return to this app</p>
               </div>
             </div>
           </div>
           <div id="div_absent_app" class="col-md-6">
             <div class="card">
-              <div class="card-body">
+              <div class="card-body instructiondiv">
                 <p>Please complete an <a href="https://www.michigan.gov/documents/AbsentVoterBallot_105377_7.pdf" target="_blank">Absent Voter Ballot Application <i class="fas fa-file-pdf"></i></a></p>
                 <ol>
                   <li>Enter your information in Section 1</li>
@@ -58,12 +60,15 @@
           </div>
           <div id="div_reg_app" class="col-md-6 noregdiv">
             <div class="card">
-              <div class="card-body">
+              <div class="card-body instructiondiv">
                 <p>Please complete a <a href="https://www.michigan.gov/documents/MIVoterRegistration_97046_7.pdf" target="_blank">Voter Registration Application <i class="fas fa-file-pdf"></i></a></p>
                 <ul><li>Check &quot;I want to vote absentee...&quot; at the bottom of the personal information section on page 2</li></ul>
+                <p><small>You must be a Michigan resident; if you do not yet have a Michigan address, please come back later or register to vote absentee in your home state.</small>
               </div>
             </div>
           </div>
+        </div>
+        <div class="row mt-md-4">
           <div id="div_past_reg" class="col-md-6 noregdiv">
             <div class="card">
               <div class="card-body">
@@ -77,7 +82,7 @@
           </div>
           <div id="div_mail" class="col-md-6 noregdiv">
             <div class="card">
-              <div class="card-body">
+              <div class="card-body instructiondiv">
                 <span id="span_documentation">
                   <p>Enclose a <strong>copy</strong> of <strong>any one of the following</strong> with your application.</p>
                   <ul>
@@ -88,7 +93,7 @@
                     <li>Bank statement</li>
                     <li>A government document</li>
                   </ul>
-                  <p>Please make sure this document lists your name and address.</p>
+                  <p><small>Please make sure this document lists your name and address.</small></p>
                 </span>
                 <p>Mail the completed application to <a href="https://mvic.sos.state.mi.us/Clerk" target="_blank">your clerk <i class="fas fa-external-link-alt"></i></a></p>
               </div>
