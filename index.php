@@ -24,12 +24,11 @@
       <form id="mainform">
         <div id="div_current_reg">
           <p>Are you currently registered to vote in Michigan?</p>
-          <input type="radio" id="current_reg_y" name="current_reg" value="y" />
-          <label for="current_reg_y">Yes</label>
-          <input type="radio" id="current_reg_n" name="current_reg" value="n" />
-          <label for="current_reg_n">No</label>
-          <input type="radio" id="current_reg_u" name="current_reg" value="u" />
-          <label for="current_reg_u">Not sure</label>
+          <div class="btn-group" role="group">
+            <button type="button" id="current_reg_y" class="btn btn-primary">Yes</button>
+            <button type="button" id="current_reg_n" class="btn btn-primary">No</button>
+            <button type="button" id="current_reg_u" class="btn btn-primary">Unsure</button>
+          </div>
         </div>
         <div id="div_check_reg">
           <p>Please <a href="https://mvic.sos.state.mi.us/" target="_blank">check your registration</a>, then return to this app</p>
@@ -44,16 +43,16 @@
           </ol>
         </div>
         <div id="div_notregged">
-          <div id="div_reg_app">
+          <div id="div_notregged">
             <p>Please complete a Voter Registration Application</p>
             <ul><li>Check &quot;I want to vote absentee...&quot; at the bottom of the personal information section on page 2</li></ul>
           </div>
           <div id="div_past_reg">
             <p>In the past, have you ever been registered to vote in Michigan?</p>
-            <input type="radio" id="past_reg_y" name="past_reg" value="y" />
-            <label for="past_reg_y">Yes</label>
-            <input type="radio" id="past_reg_n" name="past_reg" value="n" />
-            <label for="past_reg_n">No/Not sure</label>
+            <div class="btn-group" role="group">
+              <button type="button" id="past_reg_y" class="btn btn-primary">Yes</button>
+              <button type="button" id="past_reg_n" class="btn btn-primary">No/Unsure</button>
+            </div>
           </div>
           <div id="div_documentation">
             <p>Enclose a <strong>copy</strong> of <strong>any one of the following</strong> with your application.</p>
@@ -73,7 +72,7 @@
         </div>
       </form>
     </div>
-    <footer class="container-fluid text-right" style="background-color: #003e74; color: #ffffff;">
+    <footer class="container-fluid text-right mt-4" style="background-color: #003e74; color: #ffffff;">
       <small>Please contact <a class="text-white" href='mailto:ngoyal1@hfhs.org'>Nikhil Goyal</a> with any feedback</a></small>  
     </footer>
     <!-- Optional JavaScript -->
