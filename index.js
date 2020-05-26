@@ -16,8 +16,8 @@ $(function(){
         $("#div_check_reg").hide();
         $("#div_notregged").show();
         $("#div_past_reg .btn-group").show();
-        $("#div_past_reg").fadeIn(fadeSpeed, function() {
-            $("#div_reg_app").fadeIn(fadeSpeed);
+        $("#div_reg_app").fadeIn(fadeSpeed, function() {
+            $("#div_past_reg").fadeIn(fadeSpeed);
         });
     });
     $("#past_reg_y").on("click", function() {

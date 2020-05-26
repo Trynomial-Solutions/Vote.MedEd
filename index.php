@@ -43,7 +43,7 @@
           </ol>
         </div>
         <div id="div_notregged">
-          <div id="div_notregged">
+          <div id="div_reg_app">
             <p>Please complete a Voter Registration Application</p>
             <ul><li>Check &quot;I want to vote absentee...&quot; at the bottom of the personal information section on page 2</li></ul>
           </div>
@@ -72,7 +72,7 @@
         </div>
       </form>
     </div>
-    <footer class="container-fluid text-right mt-4" style="background-color: #003e74; color: #ffffff;">
+    <footer class="container-fluid text-right mt-4">
       <small>Please contact <a class="text-white" href='mailto:ngoyal1@hfhs.org'>Nikhil Goyal</a> with any feedback</a></small>  
     </footer>
     <!-- Optional JavaScript -->
