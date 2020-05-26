@@ -7,6 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
     <link rel="stylesheet" href="index.css">
 
     <title>Hello, world!</title>
@@ -34,7 +35,7 @@
           <p>Please <a href="https://mvic.sos.state.mi.us/" target="_blank">check your registration</a>, then return to this app</p>
         </div>
         <div id="div_absent_app">
-          <p>Please complete an Absent Voter Ballot Application</p>
+          <p>Please complete an <a href="https://www.michigan.gov/documents/AbsentVoterBallot_105377_7.pdf" target="_blank">Absent Voter Ballot Application <i class="fas fa-file-pdf"></i></a></p>
           <ol>
             <li>Enter your information in Section 1</li>
             <li>Check &quot;Both 2020 Elections&quot; and &quot;Future Elections&quot; in Section 2</li>
@@ -44,7 +45,7 @@
         </div>
         <div id="div_notregged">
           <div id="div_reg_app">
-            <p>Please complete a Voter Registration Application</p>
+            <p>Please complete a <a href="https://www.michigan.gov/documents/MIVoterRegistration_97046_7.pdf" target="_blank">Voter Registration Application <i class="fas fa-file-pdf"></i></a></p>
             <ul><li>Check &quot;I want to vote absentee...&quot; at the bottom of the personal information section on page 2</li></ul>
           </div>
           <div id="div_past_reg">
@@ -56,15 +57,15 @@
           </div>
           <div id="div_documentation">
             <p>Enclose a <strong>copy</strong> of <strong>any one of the following</strong> with your application.</p>
-            <p>Please make sure this document lists your name and address.</p>
-            <ol>
+            <ul>
               <li>Driver's license from any state</li>
               <li>State ID card from any state</li>
               <li>Paycheck stub</li>
               <li>Utility bill</li>
               <li>Bank statement</li>
               <li>A government document</li>
-            </ol>
+            </ul>
+            <p>Please make sure this document lists your name and address.</p>
           </div>
           <div id="div_mail">
             <p>Mail the completed application to <a href="https://mvic.sos.state.mi.us/Clerk" target="_blank">your clerk</a></p>
