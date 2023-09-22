@@ -1,119 +1,154 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgo=">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+        integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
     <link rel="stylesheet" href="index.css">
 
     <title>Henry Ford - We Vote! &#10004;</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <header class="container-fluid align-items-center mb-4">
-      <div class="row">
-        <div class="col-md-2">
-            <img src="img/hfh_sm_v_pos_clr_rgb_211028.png" alt="Henry Ford Health" class="img-fluid py-3 px-5 px-md-0" />
+        <div class="row">
+            <div class="col-md-2">
+                <img src="img/hfh_sm_v_pos_clr_rgb_211028.png" alt="Henry Ford Health"
+                    class="img-fluid py-3 px-5 px-md-0" />
+            </div>
+            <div class="col text-center my-auto">
+                <h1 class="display-5">We Vote!</h1>
+            </div>
         </div>
-        <div class="col text-center my-auto">
-          <h1 class="display-5">We Vote!</h1>
-        </div>
-      </div>
     </header>
     <div class="container">
-      <!-- <div class="row mb-3">
+        <!-- <div class="row mb-3">
         <div class="col text-center">
           <p><b>Did your absentee ballot arrive? Check <a href="https://mvic.sos.state.mi.us/Voter/Index" target="_blank">here! <i class="fas fa-external-link-alt"></i></a></b></p>
         </div>
       </div> -->
-      <form id="mainform">
-        <div class="row">
-          <div id="div_current_reg" class="col-md-6">
-            <div class="card">
-              <div class="card-body">
-                <p>Are you currently registered to vote in Michigan?</p>
-                <div class="btn-group" role="group">
-                  <button type="button" id="current_reg_y" class="btn btn-primary">Yes</button>
-                  <button type="button" id="current_reg_n" class="btn btn-primary">No</button>
-                  <button type="button" id="current_reg_u" class="btn btn-primary">Unsure</button>
+        <form id="mainform">
+            <div class="row">
+                <div id="div_current_reg" class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <p>Are you currently registered to vote in Michigan?</p>
+                            <div class="btn-group" role="group">
+                                <button type="button" id="current_reg_y" class="btn btn-primary">Yes</button>
+                                <button type="button" id="current_reg_n" class="btn btn-primary">No</button>
+                                <button type="button" id="current_reg_u" class="btn btn-primary">Unsure</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div id="div_check_reg" class="col-md-6">
-            <div class="card">
-              <div class="card-body instructiondiv">
-                <p>Please <a href="https://mvic.sos.state.mi.us/Voter/Index" target="_blank">check if you are registered <i class="fas fa-external-link-alt"></i></a>, then return to this app.</p>
-              </div>
-            </div>
-          </div>
-          <div id="div_absent_app" class="col-md-6">
-            <div class="card">
-              <div class="card-body instructiondiv">
-                <p>If you have a Michigan driver's license or state ID, please  <a href="https://mvic.sos.state.mi.us/AVApplication/Index" target="_blank">apply online <i class="fas fa-external-link-alt"></i></a> for an absent voter ballot. Otherwise please complete an <a href="https://www.michigan.gov/sos/-/media/Project/Websites/sos/Elections/Election-Forms/Absent-Voter-Ballot-Application-Fillable.pdf?rev=4d217f56f6454564a484fbb715768a17&hash=FB07641F244259C5F9FE0D5AF58520D7" target="_blank">Absent Voter Ballot Application <i class="fas fa-file-pdf"></i></a></p>
-                <ol>
-                  <li>Enter your information in Section 1</li>
-                  <li>Check &quot;I want to vote absentee...&quot; in Section 2</li>
-                  <li>Sign and date</li>
-                  <li>e-mail or mail to <a href="https://mvic.sos.state.mi.us/Voter/Index/#yourclerk" target="_blank">your clerk <i class="fas fa-external-link-alt"></i></a></li>
-                </ol>
-              </div>
-            </div>
-          </div>
-          <div id="div_reg_app" class="col-md-6 noregdiv">
-            <div class="card">
-              <div class="card-body instructiondiv">
-                <p>If you have a Michigan driver's license or state ID, you may <a href="https://mvic.sos.state.mi.us/RegisterVoter" target="_blank">register to vote online <i class="fas fa-external-link-alt"></i></a>. Otherwise please complete a Michigan <a href="https://www.michigan.gov/sos/-/media/Project/Websites/sos/Elections/Election-Forms/Voter-Registration-Form-English.pdf?rev=9b0ee49b142047b7a88ef32987c3f1b4&hash=13246777B383C5B7939663504EF6472D" target="_blank">Voter Registration Application <i class="fas fa-file-pdf"></i></a></p>
-                <ul><li>Check &quot;I want to vote absentee...&quot; at the bottom of the personal information section on page 2</li></ul>
-                <p><small>You must be a Michigan resident; if you do not yet have a Michigan address, please come back later.</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row mt-md-4">
-          <div id="div_past_reg" class="col-md-6 noregdiv">
-            <div class="card">
-              <div class="card-body">
-                <p>In the past, have you ever been registered to vote in Michigan?</p>
-                <div class="btn-group" role="group">
-                  <button type="button" id="past_reg_y" class="btn btn-primary">Yes</button>
-                  <button type="button" id="past_reg_n" class="btn btn-primary">No/Unsure</button>
+                <div id="div_check_reg" class="col-md-6">
+                    <div class="card">
+                        <div class="card-body instructiondiv">
+                            <p>Please <a href="https://mvic.sos.state.mi.us/Voter/Index" target="_blank">check if you
+                                    are registered <i class="fas fa-external-link-alt"></i></a>, then return to this
+                                app.</p>
+                        </div>
+                    </div>
                 </div>
-              </div>
+                <div id="div_absent_app" class="col-md-6">
+                    <div class="card">
+                        <div class="card-body instructiondiv">
+                            <p>If you have a Michigan driver's license or state ID, please <a
+                                    href="https://mvic.sos.state.mi.us/AVApplication/Index" target="_blank">apply online
+                                    <i class="fas fa-external-link-alt"></i></a> for an absent voter ballot. Otherwise
+                                please complete an <a
+                                    href="https://www.michigan.gov/sos/-/media/Project/Websites/sos/Elections/Election-Forms/Absent-Voter-Ballot-Application-Fillable.pdf?rev=4d217f56f6454564a484fbb715768a17&hash=FB07641F244259C5F9FE0D5AF58520D7"
+                                    target="_blank">Absent Voter Ballot Application <i class="fas fa-file-pdf"></i></a>
+                            </p>
+                            <ol>
+                                <li>Enter your information in Section 1</li>
+                                <li>If given the option, please sign up to automatically receive an absent ballot for
+                                    future elections.</li>
+                                <li>Sign and date</li>
+                                <li>e-mail or mail to <a href="https://mvic.sos.state.mi.us/Voter/Index/#yourclerk"
+                                        target="_blank">your clerk <i class="fas fa-external-link-alt"></i></a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div id="div_reg_app" class="col-md-6 noregdiv">
+                    <div class="card">
+                        <div class="card-body instructiondiv">
+                            <p>If you have a Michigan driver's license or state ID, you may <a
+                                    href="https://mvic.sos.state.mi.us/RegisterVoter" target="_blank">register to vote
+                                    online <i class="fas fa-external-link-alt"></i></a>. Otherwise please complete a
+                                Michigan <a
+                                    href="https://www.michigan.gov/sos/-/media/Project/Websites/sos/Elections/Election-Forms/Voter-Registration-Form-English.pdf?rev=9b0ee49b142047b7a88ef32987c3f1b4&hash=13246777B383C5B7939663504EF6472D"
+                                    target="_blank">Voter Registration Application <i class="fas fa-file-pdf"></i></a>
+                            </p>
+                            <ul>
+                                <li>If given the option, please sign up to automatically receive an absent ballot for
+                                    future elections.</li>
+                            </ul>
+                            <p><small>You must be a Michigan resident; if you do not yet have a Michigan address, please
+                                    come back later.</small>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div id="div_mail" class="col-md-6 noregdiv">
-            <div class="card">
-              <div class="card-body instructiondiv">
-                <span id="span_documentation">
-                  <p>Hand-deliver the completed form to <a href="https://mvic.sos.state.mi.us/Voter/Index/#yourclerk" target="_blank">your clerk <i class="fas fa-external-link-alt"></i></a>, OR</p>
-                  <hr>
-                  <p>Enclose a <strong>copy</strong> of <strong>any one of the following</strong> with your application.</p>
-                  <ul>
-                    <li>Driver's license from any state</li>
-                    <li>State ID card from any state</li>
-                    <li>Current and valid photo identification</li>
-                    <li>Paycheck stub</li>
-                    <li>Utility bill</li>
-                    <li>Bank statement</li>
-                    <li>A government document</li>
-                  </ul>
-                  <p><small>Please make sure this document lists your name and address.</small></p>
-                </span>
-                <p>Mail the completed application to <a href="https://mvic.sos.state.mi.us/Voter/Index/#yourclerk" target="_blank">your clerk <i class="fas fa-external-link-alt"></i></a></p>
-              </div>
+            <div class="row mt-md-4">
+                <div id="div_past_reg" class="col-md-6 noregdiv">
+                    <div class="card">
+                        <div class="card-body">
+                            <p>In the past, have you ever been registered to vote in Michigan?</p>
+                            <div class="btn-group" role="group">
+                                <button type="button" id="past_reg_y" class="btn btn-primary">Yes</button>
+                                <button type="button" id="past_reg_n" class="btn btn-primary">No/Unsure</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="div_mail" class="col-md-6 noregdiv">
+                    <div class="card">
+                        <div class="card-body instructiondiv">
+                            <span id="span_documentation">
+                                <p>Hand-deliver the completed form to <a
+                                        href="https://mvic.sos.state.mi.us/Voter/Index/#yourclerk" target="_blank">your
+                                        clerk <i class="fas fa-external-link-alt"></i></a>, OR</p>
+                                <hr>
+                                <p>Enclose a <strong>copy</strong> of <strong>any one of the following</strong> with
+                                    your application.</p>
+                                <ul>
+                                    <li>Driver's license from any state</li>
+                                    <li>State ID card from any state</li>
+                                    <li>Current and valid photo identification</li>
+                                    <li>Paycheck stub</li>
+                                    <li>Utility bill</li>
+                                    <li>Bank statement</li>
+                                    <li>A government document</li>
+                                </ul>
+                                <p><small>Please make sure this document lists your name and address.</small></p>
+                            </span>
+                            <p>Mail the completed application to <a
+                                    href="https://mvic.sos.state.mi.us/Voter/Index/#yourclerk" target="_blank">your
+                                    clerk <i class="fas fa-external-link-alt"></i></a></p>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </form>
+        </form>
     </div>
     <footer class="container-fluid text-right mt-4">
-      <small>Feedback: Sam Champagne, <a class="text-white" href='mailto:ngoyal1@hfhs.org'>Nikhil Goyal</a> or Taher Vohra</small>
+        <small>Feedback: Sam Champagne, <a class="text-white" href='mailto:ngoyal1@hfhs.org'>Nikhil Goyal</a> or Taher
+            Vohra</small>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
     <script src="index.js"></script>
-  </body>
+</body>
+
 </html>
