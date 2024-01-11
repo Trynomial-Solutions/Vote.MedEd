@@ -89,13 +89,12 @@
                         </div>
                     </form>
                 </div>
-                <div class="container py-2 rounded bg-warning-subtle">
+                <div class="container py-2 rounded bg-warning-subtle mb-3">
                     <div class="border-primary border-bottom pb-2">
                         <div class="row">
                             <div class="col-11">
-                                <h6>e-mail to send on National Voter Registration Day (<span
-                                    id="nvrdFormatted"></span>) and again on <span
-                                    id="nvrdPlusOneMonthFormatted"></span></h6>
+                                <h6>e-mail to send on National Voter Registration Day: <span id="nvrdFormatted"></span>
+                                </h6>
                             </div>
                             <div class="col-1" id="divNvrdCopyBtn">
                             </div>
@@ -106,16 +105,14 @@
                         <p>Happy <i>#NationalVoterRegistrationDay</i>! We think it is important for our students,
                             residents, and fellows
                             to be involved in state and national elections. <b>Please remember to vote in the election
-                                on
-                                <span id="genElecFormatted"></span>.</b></p>
+                                on <span id="genElecFormatted"></span>.</b></p>
                         <p>Residents and fellows sometimes have schedule conflicts that preclude voting in state and
                             national elections.
                             <b>Every state allows you to vote by mail</b> - it's a convenient, secure way to vote while
-                            also protecting
-                            your health. If you have yet to do so, please take a minute to check your voter registration
-                            and apply for
-                            absentee voting. <b>Visit <a href="https://vote.health/HENRYFORD" id="votErLink"><span
-                                        id="votErLinkText">https://vote.health/HENRYFORD</span></a></b> for a quick
+                            also protecting your health. If you have yet to do so, please take a minute to check your
+                            voter registration and apply for
+                            absentee voting. <b>Visit <a href="https://vote.health/HENRYFORD" class="votErLink"><span
+                                        class="votErLinkText">https://vote.health/HENRYFORD</span></a></b> for a quick
                             walkthrough on how
                             to register to
                             vote and obtain an absentee ballot.
@@ -138,13 +135,50 @@
                         <p>Your vote matters!</p>
                     </div>
                 </div>
+                <div class="container py-2 rounded bg-warning-subtle mb-3">
+                    <div class="border-primary border-bottom pb-2">
+                        <div class="row">
+                            <div class="col-11">
+                                <h6>e-mail to send on <span id="nvrdPlusOneMonthFormatted"></span></h6>
+                            </div>
+                            <div class="col-1" id="divNextElecCopyBtn">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-2" id="divNextElec">
+                        <p>Dear Residents & Fellows,</p>
+                        <p>The *** election is just around the corner, and we want to make sure you have the
+                            right information to engage this year.</p>
+                        <p>First, make sure that you are registered to vote to exercise your civic duty! Many of
+                            us have moved within the past year and may have forgotten to update our voter
+                            registration. Second, please consider voting by mail - it's a convenient, secure way
+                            to vote while also protecting your health. <b>Visit <a href="https://vote.health/HENRYFORD"
+                                    class="votErLink"><span
+                                        class="votErLinkText">https://vote.health/HENRYFORD</span></a> for a
+                                quick walkthrough on how to register to vote and obtain an absentee ballot.</b>
+                        </p>
+                        <p>Here are some unbiased sources for research on the issues and candidates. If you know
+                            of other good, non-partisan sources, please share with us and your friends.</p>
+                        <ul>
+                            <li>National, state candidates: <a href='https://votesmart.org/'>https://votesmart.org/</a>,
+                                <a href='https://ballotpedia.org/'>https://ballotpedia.org/</a>, <a
+                                    href='https://www.vote411.org/'>https://www.vote411.org/</a>
+                            </li>
+                            <li>Local races: <a href='https://www.vote411.org/'>https://www.vote411.org/</a>
+                            </li>
+                        </ul>
+                        <p>The <b>next election is the *** on ***.</b> Register to vote and sign up for an
+                            absentee ballot today!</p>
+                        <p>Your vote matters!</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <template id="copyButton">
         <div data-bs-toggle="tooltip" data-bs-title="Copy to Clipboard" class="clipDiv">
-            <a href="#" onclick="copyToClip(this)">
+            <a href="#!" onclick="copyToClip(this)">
                 <span class="clipBtncopy">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-clipboard2" viewBox="0 0 16 16">
