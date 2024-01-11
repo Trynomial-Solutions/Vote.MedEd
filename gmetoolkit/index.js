@@ -29,25 +29,25 @@ function copyToClip(el) {
 };
 
 // get US state
-if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(get_state, error => {
-        console.log("Error obtaining position");
-        console.log(error);
-    });
-} else {
-    console.log("Geolocation not supported");
-}
+// if (navigator.geolocation) {
+//     navigator.geolocation.getCurrentPosition(get_state, error => {
+//         console.log("Error obtaining position");
+//         console.log(error);
+//     });
+// } else {
+//     console.log("Geolocation not supported");
+// }
 
-async function get_state(position) {
-    // console.log(position);
-    const params = new URLSearchParams({
-        lat: position.coords.latitude,
-        long: position.coords.longitude
-    });
-    const response = await fetch('php/q_locationstate.php?' + params.toString());
-    const state = await response.json();
-    // console.log(state);
-}
+// async function get_state(position) {
+//     // console.log(position);
+//     const params = new URLSearchParams({
+//         lat: position.coords.latitude,
+//         long: position.coords.longitude
+//     });
+//     const response = await fetch('php/q_locationstate.php?' + params.toString());
+//     const state = await response.json();
+//     // console.log(state);
+// }
 
 // get election dates
 fetch('php/q_electiondate.php').then(response => {
@@ -61,11 +61,17 @@ fetch('php/q_electiondate.php').then(response => {
 });
 
 // add clipboard copy button
-const copyBtnTemplate = document.getElementById('copyButton');
-const clone = copyBtnTemplate.content.cloneNode(true);
-clone.querySelector('a').dataset.emailtext = 'divNvrd';
-clone.querySelector('.clipDiv').id = clone.querySelector('a').dataset.emailtext + "ClipDiv";
-document.getElementById('divNvrdCopyBtn').appendChild(clone);
+addClipCopyBtn('divNvrd');
+
+function addClipCopyBtn(emailDiv) {
+    // add copy button to the div specified by emailDivCopyBtn
+    // will read the email text that is in the div called emailDiv
+    const copyBtnTemplate = document.getElementById('copyButton');
+    const clone = copyBtnTemplate.content.cloneNode(true);
+    clone.querySelector('a').dataset.emailtext = emailDiv;
+    clone.querySelector('.clipDiv').id = emailDiv + "ClipDiv";
+    document.getElementById(emailDiv + 'CopyBtn').appendChild(clone);    
+}
 
 // enable tooltips
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
