@@ -6,8 +6,15 @@ $dt = new DateTime("first Monday of November");
 $dt->modify("next Tuesday");
 $dt->setTime(0, 0, 0);
 
-header("Content-Type: application/json");
-echo json_encode([
+$rVal = [
     'genElec' => $dt->format("Y-m-d"),
-    'genElecFormatted' => $dt->format("m-d-Y"),
-]);
+    'genElecFormatted' => $dt->format("l, F j, Y"),
+];
+
+$dt->modify("-7 weeks");
+$rVal['nvrdFormatted'] = $dt->format("l, F j, Y");
+$dt->modify("+4 weeks");
+$rVal['nvrdPlusOneMonthFormatted'] = $dt->format("l, F j, Y");
+
+header("Content-Type: application/json");
+echo json_encode($rVal);

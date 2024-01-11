@@ -12,6 +12,7 @@ function copyToClip(content) {
     }
 };
 
+// get US state
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(get_state, error => {
         console.log("Error obtaining position");
@@ -29,5 +30,21 @@ async function get_state(position) {
     });
     const response = await fetch('php/q_locationstate.php?' + params.toString());
     const state = await response.json();
-    console.log(state);
+    // console.log(state);
 }
+
+// get election dates
+fetch('php/q_electiondate.php').then(response => {
+    response.json().then(dates => {
+        console.log(dates);
+        document.getElementById('nvrdFormatted').textContent = dates.nvrdFormatted;
+        document.getElementById('nvrdPlusOneMonthFormatted').textContent = dates.nvrdPlusOneMonthFormatted;
+
+        const nvrdTemplate = document.getElementById('natlvoterregday');
+        const clone = nvrdTemplate.content.cloneNode(true);
+        clone.getElementById('genElecFormatted').textContent = dates.genElecFormatted;
+
+        document.getElementById('divNvrd').innerHTML = "";
+        document.getElementById('divNvrd').appendChild(clone);
+    });
+});
