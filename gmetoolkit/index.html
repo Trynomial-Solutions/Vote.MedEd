@@ -15,22 +15,115 @@
 
 <body class="container">
     <h1>GME Toolkit</h1>
-    <p>We hope that these resources will help you engage your residents and fellows in this important civic activity. Our goal is to encourage residents to keep their voting registration up-to-date, take advantage of mail-in voting when available, and to become informed voters.</p>
+    <p>We hope that these resources will help you engage your residents and fellows in this important civic activity.
+        Our goals are to help our residents:</p>
+    <ul>
+        <li>keep their voting registration up-to-date</li>
+        <li>take advantage of mail-in voting when available, and</li>
+        <li>become informed voters</li>
+    </ul>
     <div class="row gx-2">
         <div class="col-lg-6">
             <div class="border rounded px-2">
-                Talking to legal
+                Tips on getting institutional buy-in
             </div>
         </div>
         <div class="col-lg-6">
-            <div class="border rounded px-2">
-                Form
+            <div class="border rounded p-2">
+                <div class="container bg-primary-subtle rounded py-2">
+                    <form>
+                        <div class="row mb-1">
+                            <div class="col-5">
+                                <label for="dt1" class="col-form-label">Upcoming election date:</label>
+                            </div>
+                            <div class="col-auto">
+                                <input type="date" class="form-control" id="dt1" name="dt1">
+                            </div>
+                            <div class="col-1" data-bs-toggle="tooltip"
+                                data-bs-title="Date of upcoming general election/primary - you can get this from your state's website">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-info-square-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm8.93 4.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="row mb-1">
+                            <div class="col-5">
+                                <label for="dt2" class="col-form-label">Subsequent election date:</label>
+                            </div>
+                            <div class="col-auto">
+                                <input type="date" class="form-control" id="dt2" name="dt2">
+                            </div>
+                            <div class="col-1" data-bs-toggle="tooltip"
+                                data-bs-title="(optional) Date for the election after the upcoming one. Check your state website.">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-info-square-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm8.93 4.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5">
+                                <label for="votertag" class="col-form-label"><a
+                                        href="https://vot-er.org/custom-materials/" target="_blank">Vote-Er.Org</a>
+                                    Tracking Code:</label>
+                            </div>
+                            <div class="col-auto">
+                                <input type="text" class="form-control" id="votertag" name="votertag"
+                                    placeholder="HENRYFORD">
+                            </div>
+                            <div class="col-1" data-bs-toggle="tooltip"
+                                data-bs-title="Get your custom tag from Vot-ER, or use ours!">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-info-square-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm8.93 4.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
+                                </svg>
+                            </div>
+                            <div class="col-auto">
+                                <button class="btn btn-primary btn-sm" id="do_templates" name="do_templates"
+                                    type="button">Go &gt;</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <p>Template 1: e-mail to send on National Voter Registration Day (***) and on <span
+                        id="twomonths">***</span></p>
             </div>
         </div>
     </div>
+
+    <template id="natlvoterregday">
+        <p>Hello Everyone,</p>
+        <p>Happy <i>#NationalVoterRegistrationDay!</i> We think it is important for our students, residents, and fellows
+            to be involved in state and national elections. <b>Please remember to vote in the election on
+                <span id="nvrdDate"></span>.</b></p>
+        <p>Residents and fellows sometimes have schedule conflicts that preclude voting in state and national elections.
+            <b>Every state allows you to vote by mail</b> - it's a convenient, secure way to vote while also protecting
+            your health. If you have yet to do so, please take a minute to check your voter registration and apply for
+            absentee voting. <b>Visit <a href="https://vote.health/HENRYFORD" id="votErLink"><span id="votErLinkText">https://vote.health/HENRYFORD</span></a></b> for a quick walkthrough on how to register to
+            vote and obtain an absentee ballot.
+        </p>
+        <p>Here are some unbiased sources for research on the issues and candidates. If you know of other good,
+            non-partisan sources, please share with us and your friends.</p>
+        <ul>
+            <li>National, state candidates: https://votesmart.org/, https://ballotpedia.org/, https://www.vote411.org/
+            </li>
+            <li>Local races: https://www.vote411.org/ </li>
+        </ul>
+        <p>If there is anything that medical education can do to facilitate this, please let us know! We welcome your
+            suggestions on other ways we can facilitate your involvement in the political process. Please reach out if
+            you have any questions or feedback.</p>
+        <p>Your vote matters!</p>
+    </template>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+    <script src="index.js"></script>
 </body>
 
 </html>
