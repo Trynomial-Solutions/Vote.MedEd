@@ -13,9 +13,9 @@ $queryStr = \http_build_query(
     ]
 );
 
-$results = json_decode(\file_get_contents($googleMapsUrl . $queryStr), true);
+$results = \json_decode(\file_get_contents($googleMapsUrl . $queryStr), true);
 $state = $results['results'][0]['address_components'][0];
 unset($state['types']);
 
-header("Content-Type: application/json");
-echo json_encode($state);
+\header("Content-Type: application/json");
+echo \json_encode($state);
