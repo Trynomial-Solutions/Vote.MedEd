@@ -1,12 +1,28 @@
-const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
-
-function copyToClip(content) {
+function copyToClip(el) {
     // https://dev.to/stegriff/copy-rich-html-with-the-native-clipboard-api-5ah8
+    const emailDiv = el.dataset.emailtext;
+    const tTip = bootstrap.Tooltip.getInstance('#' + emailDiv + "ClipDiv");
+    // console.log(tTip);
+
+    const content = document.getElementById(emailDiv).innerHTML;
     try {
         const blobInput = new Blob([content], { type: 'text/html' });
         const clipboardItemInput = new ClipboardItem({ 'text/html': blobInput });
         navigator.clipboard.write([clipboardItemInput]);
+
+        // update clipboad icon to indicate copied
+        tTip.hide();
+        el.querySelector('.clipBtncopy').classList.add('d-none');
+        el.querySelector('.clipBtnCopyDone').classList.remove('d-none');
+        tTip._config.title = "Copied!";
+        tTip.show();
+
+        // re-display after 5s
+        setTimeout(() => {
+            el.querySelector('.clipBtncopy').classList.remove('d-none');
+            el.querySelector('.clipBtnCopyDone').classList.add('d-none');
+            tTip._config.title = "Copy to Clipboard";
+        }, 5000);
     } catch (e) {
         console.log(e);
     }
@@ -36,15 +52,21 @@ async function get_state(position) {
 // get election dates
 fetch('php/q_electiondate.php').then(response => {
     response.json().then(dates => {
-        console.log(dates);
+        // console.log(dates);
+        document.getElementById('dt1').value = dates.genElec;
         document.getElementById('nvrdFormatted').textContent = dates.nvrdFormatted;
         document.getElementById('nvrdPlusOneMonthFormatted').textContent = dates.nvrdPlusOneMonthFormatted;
-
-        const nvrdTemplate = document.getElementById('natlvoterregday');
-        const clone = nvrdTemplate.content.cloneNode(true);
-        clone.getElementById('genElecFormatted').textContent = dates.genElecFormatted;
-
-        document.getElementById('divNvrd').innerHTML = "";
-        document.getElementById('divNvrd').appendChild(clone);
+        document.getElementById('genElecFormatted').textContent = dates.genElecFormatted;
     });
 });
+
+// add clipboard copy button
+const copyBtnTemplate = document.getElementById('copyButton');
+const clone = copyBtnTemplate.content.cloneNode(true);
+clone.querySelector('a').dataset.emailtext = 'divNvrd';
+clone.querySelector('.clipDiv').id = clone.querySelector('a').dataset.emailtext + "ClipDiv";
+document.getElementById('divNvrdCopyBtn').appendChild(clone);
+
+// enable tooltips
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))

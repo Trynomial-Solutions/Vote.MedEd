@@ -30,7 +30,7 @@
         </div>
         <div class="col-lg-6">
             <div class="border rounded p-2">
-                <div class="container bg-primary-subtle rounded py-2">
+                <div class="container bg-primary-subtle rounded py-2 mb-3">
                     <form>
                         <div class="row mb-1">
                             <div class="col-5">
@@ -89,36 +89,80 @@
                         </div>
                     </form>
                 </div>
-                <p>Template 1: e-mail to send on National Voter Registration Day (<span id="nvrdFormatted"></span>) and again on <span id="nvrdPlusOneMonthFormatted">***</span></p>
-                <div class="container py-2 rounded bg-secondary-subtle" id="divNvrd">
-                    sss
+                <div class="container py-2 rounded bg-secondary-subtle">
+                    <div class="border-primary border-bottom pb-2">
+                        <div class="row">
+                            <div class="col-11">
+                                Template 1: e-mail to send on National Voter Registration Day (<span
+                                    id="nvrdFormatted"></span>) and again on <span
+                                    id="nvrdPlusOneMonthFormatted"></span>
+                            </div>
+                            <div class="col-1" id="divNvrdCopyBtn">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="font-monospace pt-2" id="divNvrd">
+                        <p>Hello Everyone,</p>
+                        <p>Happy <i>#NationalVoterRegistrationDay</i>! We think it is important for our students,
+                            residents, and fellows
+                            to be involved in state and national elections. <b>Please remember to vote in the election
+                                on
+                                <span id="genElecFormatted"></span>.</b></p>
+                        <p>Residents and fellows sometimes have schedule conflicts that preclude voting in state and
+                            national elections.
+                            <b>Every state allows you to vote by mail</b> - it's a convenient, secure way to vote while
+                            also protecting
+                            your health. If you have yet to do so, please take a minute to check your voter registration
+                            and apply for
+                            absentee voting. <b>Visit <a href="https://vote.health/HENRYFORD" id="votErLink"><span
+                                        id="votErLinkText">https://vote.health/HENRYFORD</span></a></b> for a quick
+                            walkthrough on how
+                            to register to
+                            vote and obtain an absentee ballot.
+                        </p>
+                        <p>Here are some unbiased sources for research on the issues and candidates. If you know of
+                            other good,
+                            non-partisan sources, please share with us and your friends.</p>
+                        <ul>
+                            <li>National, state candidates: <a href='https://votesmart.org/'>https://votesmart.org/</a>,
+                                <a href='https://ballotpedia.org/'>https://ballotpedia.org/</a>, <a
+                                    href='https://www.vote411.org/'>https://www.vote411.org/</a>
+                            </li>
+                            <li>Local races: <a href='https://www.vote411.org/'>https://www.vote411.org/</a></li>
+                        </ul>
+                        <p>If there is anything that medical education can do to facilitate this, please let us know! We
+                            welcome your
+                            suggestions on other ways we can facilitate your involvement in the political process.
+                            Please reach out if
+                            you have any questions or feedback.</p>
+                        <p>Your vote matters!</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <template id="natlvoterregday">
-        <p>Hello Everyone,</p>
-        <p>Happy <i>#NationalVoterRegistrationDay!</i> We think it is important for our students, residents, and fellows
-            to be involved in state and national elections. <b>Please remember to vote in the election on
-                <span id="genElecFormatted"></span>.</b></p>
-        <p>Residents and fellows sometimes have schedule conflicts that preclude voting in state and national elections.
-            <b>Every state allows you to vote by mail</b> - it's a convenient, secure way to vote while also protecting
-            your health. If you have yet to do so, please take a minute to check your voter registration and apply for
-            absentee voting. <b>Visit <a href="https://vote.health/HENRYFORD" id="votErLink"><span id="votErLinkText">https://vote.health/HENRYFORD</span></a></b> for a quick walkthrough on how to register to
-            vote and obtain an absentee ballot.
-        </p>
-        <p>Here are some unbiased sources for research on the issues and candidates. If you know of other good,
-            non-partisan sources, please share with us and your friends.</p>
-        <ul>
-            <li>National, state candidates: <a href='https://votesmart.org/'>https://votesmart.org/</a>, <a href='https://ballotpedia.org/'>https://ballotpedia.org/</a>, <a href='https://www.vote411.org/'>https://www.vote411.org/</a>
-            </li>
-            <li>Local races: <a href='https://www.vote411.org/'>https://www.vote411.org/</a></li>
-        </ul>
-        <p>If there is anything that medical education can do to facilitate this, please let us know! We welcome your
-            suggestions on other ways we can facilitate your involvement in the political process. Please reach out if
-            you have any questions or feedback.</p>
-        <p>Your vote matters!</p>
+    <template id="copyButton">
+        <div data-bs-toggle="tooltip" data-bs-title="Copy to Clipboard" class="clipDiv">
+            <a href="#" onclick="copyToClip(this)">
+                <span class="clipBtncopy">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-clipboard2" viewBox="0 0 16 16">
+                        <path
+                            d="M3.5 2a.5.5 0 0 0-.5.5v12a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-12a.5.5 0 0 0-.5-.5H12a.5.5 0 0 1 0-1h.5A1.5 1.5 0 0 1 14 2.5v12a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-12A1.5 1.5 0 0 1 3.5 1H4a.5.5 0 0 1 0 1z" />
+                        <path
+                            d="M10 .5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5.5.5 0 0 1-.5.5.5.5 0 0 0-.5.5V2a.5.5 0 0 0 .5.5h5A.5.5 0 0 0 11 2v-.5a.5.5 0 0 0-.5-.5.5.5 0 0 1-.5-.5" />
+                    </svg>
+                </span>
+                <span class="clipBtnCopyDone d-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-check2" viewBox="0 0 16 16">
+                        <path
+                            d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0" />
+                    </svg>
+                </span>
+            </a>
+        </div>
     </template>
 
 
