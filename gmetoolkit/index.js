@@ -1,8 +1,12 @@
-// restrict dates for dt2
 document.getElementById('dt1').addEventListener('change', () => {
-    document.getElementById('dt2').min = document.getElementById('dt1').value;
-});
+    // restrict dates for dt2
+    const dt2 = document.getElementById('dt2');
+    const dt1 = document.getElementById('dt1');
+    dt2.min = dt1.value;
 
+    // if dt2 is blank, pull in next general election value (previously in dt1) in to it
+    if (dt2.value == "") dt2.value = dt1.dataset.genelec;
+});
 
 function copyToClip(el) {
     // https://dev.to/stegriff/copy-rich-html-with-the-native-clipboard-api-5ah8
@@ -19,20 +23,6 @@ function copyToClip(el) {
         // const clipTxt = new ClipboardItem({ 'text/plain': blobTxt });
         // const clipItem = new ClipboardItem({ 'text/plain': blobTxt }, { 'text/html': blobHTML });
         navigator.clipboard.write([clipHTML]);
-
-        // update clipboad icon to indicate copied
-        tTip.hide();
-        el.querySelector('.clipBtncopy').classList.add('d-none');
-        el.querySelector('.clipBtnCopyDone').classList.remove('d-none');
-        tTip._config.title = "Copied!";
-        tTip.show();
-
-        // re-display after 5s
-        setTimeout(() => {
-            el.querySelector('.clipBtncopy').classList.remove('d-none');
-            el.querySelector('.clipBtnCopyDone').classList.add('d-none');
-            tTip._config.title = "Copy to Clipboard";
-        }, 5000);
     } catch ({ name, message }) {
         // firefox does not support ClipboardItem
         if (message == "ClipboardItem is not defined") {
@@ -50,6 +40,20 @@ function copyToClip(el) {
             console.log(message);
         }
     }
+
+    // update clipboad icon to indicate copied
+    tTip.hide();
+    el.querySelector('.clipBtncopy').classList.add('d-none');
+    el.querySelector('.clipBtnCopyDone').classList.remove('d-none');
+    tTip._config.title = "Copied!";
+    tTip.show();
+
+    // re-display after 3s
+    setTimeout(() => {
+        el.querySelector('.clipBtncopy').classList.remove('d-none');
+        el.querySelector('.clipBtnCopyDone').classList.add('d-none');
+        tTip._config.title = "Copy to Clipboard";
+    }, 3000);
 };
 
 // get US state
@@ -78,6 +82,7 @@ fetch('php/q_electiondate.php').then(response => {
     response.json().then(dates => {
         // console.log(dates);
         document.getElementById('dt1').value = dates.genElec;
+        document.getElementById('dt1').dataset.genelec = dates.genElec;
         document.getElementById('nvrdFormatted').textContent = dates.nvrdFormatted;
         document.getElementById('genElecFormatted').textContent = dates.genElecFormatted;
         document.getElementById('nvrdBox').dataset.nvrd = dates.nvrd;
@@ -134,17 +139,23 @@ document.getElementById('do_templates').addEventListener('click', () => {
             document.getElementById('dt2').focus();
             return;
         }
-        document.querySelector("#divNextElec p.nextElecTxt").innerHTML = "After this, the <b>next election is on " + subsequentElec.toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "long", day: "numeric" }) + ".</b> Register to vote and sign up for an absentee ballot today!";
+        const list = document.querySelectorAll("p.nextElecTxt");
+        list.forEach(el => {
+            el.innerHTML = "After this, the <b>next election is on " + subsequentElec.toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "long", day: "numeric" }) + ".</b> Register to vote and sign up for an absentee ballot today!";
+        });
     }
-    
+
     // non-NVRD box is shown only if the next election is not november or it is november AND it's after NVRD
     if ((nextElec.getMonth() != 10) || ((nextElec.getMonth() == 10) && (today >= nvrd))) {
         document.getElementById('nextElecBox').classList.remove('d-none');
         if (nextElecMinus < nvrd) {
             // this box is dated before nvrd, move above it
             const el = document.getElementById('nextElecBox');
-            el.parentNode.insertBefore(el, el.previousElementSibling);
+            if (el.previousElementSibling.id == 'nvrdBox') el.parentNode.insertBefore(el, el.previousElementSibling);
         }
+    }
+    else {
+        document.getElementById('nextElecBox').classList.add('d-none');
     }
     document.getElementById('nvrdBox').classList.remove('d-none');
 });
