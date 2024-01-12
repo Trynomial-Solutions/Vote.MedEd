@@ -134,13 +134,17 @@ document.getElementById('do_templates').addEventListener('click', () => {
             document.getElementById('dt2').focus();
             return;
         }
-        document.querySelector("#divNextElec p.nextElecTxt").innerHTML = "The <b>next election is on " + subsequentElec.toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "long", day: "numeric" }) + ".</b> Register to vote and sign up for an absentee ballot today!";
+        document.querySelector("#divNextElec p.nextElecTxt").innerHTML = "After this, the <b>next election is on " + subsequentElec.toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "long", day: "numeric" }) + ".</b> Register to vote and sign up for an absentee ballot today!";
     }
     
     // non-NVRD box is shown only if the next election is not november or it is november AND it's after NVRD
-    console.log(nextElec.getMonth());
     if ((nextElec.getMonth() != 10) || ((nextElec.getMonth() == 10) && (today >= nvrd))) {
         document.getElementById('nextElecBox').classList.remove('d-none');
+        if (nextElecMinus < nvrd) {
+            // this box is dated before nvrd, move above it
+            const el = document.getElementById('nextElecBox');
+            el.parentNode.insertBefore(el, el.previousElementSibling);
+        }
     }
     document.getElementById('nvrdBox').classList.remove('d-none');
 });
