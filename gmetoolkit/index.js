@@ -79,8 +79,8 @@ fetch('php/q_electiondate.php').then(response => {
         // console.log(dates);
         document.getElementById('dt1').value = dates.genElec;
         document.getElementById('nvrdFormatted').textContent = dates.nvrdFormatted;
-        // document.getElementById('nvrdPlusOneMonthFormatted').textContent = dates.nvrdPlusOneMonthFormatted;
         document.getElementById('genElecFormatted').textContent = dates.genElecFormatted;
+        document.getElementById('nvrdBox').dataset.nvrd = dates.nvrd;
     });
 });
 
@@ -98,7 +98,7 @@ function addClipCopyBtn(emailDiv) {
     document.getElementById(emailDiv + 'CopyBtn').appendChild(clone);
 }
 
-// update email templates
+// button press - update email templates
 document.getElementById('do_templates').addEventListener('click', () => {
     // update vot-er links
     const newLink = "https://vote.health/" + document.getElementById('votertag').value;
@@ -110,6 +110,7 @@ document.getElementById('do_templates').addEventListener('click', () => {
     // update dates
     const today = new Date();
     today.setHours(12, 0, 0);
+    const nvrd = new Date(document.getElementById('nvrdBox').dataset.nvrd + " 12:00:00");
 
     const nextElec = new Date(document.getElementById('dt1').value + " 12:00:00");
     document.getElementById('nextElecFormatted').textContent = nextElec.toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "long", day: "numeric" });
@@ -135,7 +136,13 @@ document.getElementById('do_templates').addEventListener('click', () => {
         }
         document.querySelector("#divNextElec p.nextElecTxt").innerHTML = "The <b>next election is on " + subsequentElec.toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "long", day: "numeric" }) + ".</b> Register to vote and sign up for an absentee ballot today!";
     }
-    document.getElementById('nextElecBox').classList.remove('d-none');
+    
+    // non-NVRD box is shown only if the next election is not november or it is november AND it's after NVRD
+    console.log(nextElec.getMonth());
+    if ((nextElec.getMonth() != 10) || ((nextElec.getMonth() == 10) && (today >= nvrd))) {
+        document.getElementById('nextElecBox').classList.remove('d-none');
+    }
+    document.getElementById('nvrdBox').classList.remove('d-none');
 });
 
 // enable tooltips

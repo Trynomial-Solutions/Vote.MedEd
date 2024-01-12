@@ -12,9 +12,8 @@ $rVal = [
 ];
 
 $dt->modify("-7 weeks");
+$rVal['nvrd'] = $dt->format("Y-m-d");
 $rVal['nvrdFormatted'] = $dt->format("l, F j, Y");
-$dt->modify("+4 weeks");
-$rVal['nvrdPlusOneMonthFormatted'] = $dt->format("l, F j, Y");
 
 header("Content-Type: application/json");
 echo json_encode($rVal);
