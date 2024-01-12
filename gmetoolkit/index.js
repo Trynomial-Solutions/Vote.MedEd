@@ -83,11 +83,14 @@ function copyToClip(el) {
 fetch('php/q_electiondate.php').then(response => {
     response.json().then(dates => {
         // console.log(dates);
-        document.getElementById('dt1').value = dates.genElec;
-        document.getElementById('dt1').dataset.genelec = dates.genElec;
+        const dt1 = document.getElementById('dt1');
+        dt1.value = dates.genElec;
+        dt1.dataset.genelec = dates.genElec;
+        dt1.min = new Date().toLocaleDateString('fr-ca');
         document.getElementById('nvrdFormatted').textContent = dates.nvrdFormatted;
         document.getElementById('genElecFormatted').textContent = dates.genElecFormatted;
         document.getElementById('nvrdBox').dataset.nvrd = dates.nvrd;
+        document.getElementById('dt2').min = new Date().toLocaleDateString('fr-ca');
     });
 });
 
