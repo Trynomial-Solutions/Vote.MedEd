@@ -4,8 +4,10 @@ document.getElementById('dt1').addEventListener('change', () => {
     const dt1 = document.getElementById('dt1');
     dt2.min = dt1.value;
 
-    // if dt2 is blank, pull in next general election value (previously in dt1) in to it
-    if (dt2.value == "") dt2.value = dt1.dataset.genelec;
+    const dt1_dt = new Date(dt1.value);
+
+    // if dt2 is blank, pull in next general election value (previously in dt1) in to it (but not if it would make dt2 before dt1)
+    if (dt2.value == "" && dt1_dt.getMonth() < 10) dt2.value = dt1.dataset.genelec;
 });
 
 function copyToClip(el) {
