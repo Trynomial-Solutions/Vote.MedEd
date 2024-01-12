@@ -11,10 +11,14 @@ function copyToClip(el) {
     // console.log(tTip);
 
     const content = document.getElementById(emailDiv).innerHTML;
+    const txtContent = document.getElementById(emailDiv).textContent;
     try {
-        const blobInput = new Blob([content], { type: 'text/html' });
-        const clipboardItemInput = new ClipboardItem({ 'text/html': blobInput });
-        navigator.clipboard.write([clipboardItemInput]);
+        const blobHTML = new Blob([content], { type: 'text/html' });
+        const clipHTML = new ClipboardItem({ 'text/html': blobHTML });
+        // const blobTxt = new Blob([txtContent], { type: 'text/plain' });
+        // const clipTxt = new ClipboardItem({ 'text/plain': blobTxt });
+        // const clipItem = new ClipboardItem({ 'text/plain': blobTxt }, { 'text/html': blobHTML });
+        navigator.clipboard.write([clipHTML]);
 
         // update clipboad icon to indicate copied
         tTip.hide();
@@ -31,6 +35,8 @@ function copyToClip(el) {
         }, 5000);
     } catch (e) {
         console.log(e);
+
+        // firefox does not support ClipboardItem
     }
 };
 
@@ -79,17 +85,34 @@ function addClipCopyBtn(emailDiv) {
     document.getElementById(emailDiv + 'CopyBtn').appendChild(clone);
 }
 
-// update dates
+// update email templates
 document.getElementById('do_templates').addEventListener('click', () => {
-    const nextElec = new Date(document.getElementById('dt1').value + " 12:00");
+    // update vot-er links
+    const newLink = "https://vote.health/" + document.getElementById('votertag').value;
+    const listLinks = document.querySelectorAll('.votErLink');
+    listLinks.forEach(el => { el.href = newLink });
+    const listLinkText = document.querySelectorAll('.votErLinkText');
+    listLinkText.forEach(el => { el.textContent = newLink });
+
+    // update dates
+    const today = new Date();
+    today.setHours(12, 0, 0);
+
+    const nextElec = new Date(document.getElementById('dt1').value + " 12:00:00");
     document.getElementById('nextElecFormatted').textContent = nextElec.toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "long", day: "numeric" });
 
-    const nextElecMinus = new Date(document.getElementById('dt1').value + " 12:00");
+    const nextElecMinus = new Date(document.getElementById('dt1').value + " 12:00:00");
     nextElecMinus.setDate(nextElec.getDate() - (6 * 7));
-    document.getElementById('nextElecMinusFormatted').textContent = nextElecMinus.toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "long", day: "numeric" });
+    if (nextElecMinus <= today) {
+        // this would be in past - set today
+        document.getElementById('nextElecMinusFormatted').textContent = "ASAP";
+    }
+    else {
+        document.getElementById('nextElecMinusFormatted').textContent = "on " + nextElecMinus.toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "long", day: "numeric" });
+    }
 
     if (document.getElementById('dt2').value != "") {
-        subsequentElec = new Date(document.getElementById('dt2').value + " 12:00");
+        subsequentElec = new Date(document.getElementById('dt2').value + " 12:00:00");
         if (subsequentElec <= nextElec) {
             alert("Date for subsequent election should be after the upcoming election");
             document.getElementById('dt2').value = "";
@@ -101,9 +124,6 @@ document.getElementById('do_templates').addEventListener('click', () => {
         document.querySelector("#divNextElec p.d-none").classList.remove('d-none');    // show next election text
     }
     document.getElementById('nextElecBox').classList.remove('d-none');
-    console.log(nextElec);
-    console.log(nextElecMinus);
-    console.log(subsequentElec);
 });
 
 // enable tooltips
