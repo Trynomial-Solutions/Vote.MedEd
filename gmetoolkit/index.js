@@ -105,6 +105,13 @@ function addClipCopyBtn(emailDiv) {
 
 // button press - update email templates
 document.getElementById('do_templates').addEventListener('click', () => {
+    const dt1 = document.getElementById('dt1');
+    if (dt1.value == "") {
+        alert("Must specify next election date");
+        dt1.focus();
+        return;
+    }
+
     // update vot-er links
     const newLink = "https://vote.health/" + document.getElementById('votertag').value;
     const listLinks = document.querySelectorAll('.votErLink');
@@ -117,10 +124,10 @@ document.getElementById('do_templates').addEventListener('click', () => {
     today.setHours(12, 0, 0);
     const nvrd = new Date(document.getElementById('nvrdBox').dataset.nvrd + " 12:00:00");
 
-    const nextElec = new Date(document.getElementById('dt1').value + " 12:00:00");
+    const nextElec = new Date(dt1.value + " 12:00:00");
     document.getElementById('nextElecFormatted').textContent = nextElec.toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "long", day: "numeric" });
 
-    const nextElecMinus = new Date(document.getElementById('dt1').value + " 12:00:00");
+    const nextElecMinus = new Date(dt1.value + " 12:00:00");
     nextElecMinus.setDate(nextElec.getDate() - (6 * 7));
     if (nextElecMinus <= today) {
         // this would be in past - set today
@@ -135,7 +142,7 @@ document.getElementById('do_templates').addEventListener('click', () => {
         if (subsequentElec <= nextElec) {
             alert("Date for subsequent election should be after the upcoming election");
             document.getElementById('dt2').value = "";
-            document.getElementById('dt2').min = document.getElementById('dt1').value;
+            document.getElementById('dt2').min = dt1.value;
             document.getElementById('dt2').focus();
             return;
         }

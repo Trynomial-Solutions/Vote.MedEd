@@ -14,30 +14,90 @@
 </head>
 
 <body class="container">
-    <h1>GME Toolkit</h1>
-    <p>We hope that these resources will help you engage your residents and fellows in this important civic activity.
-        Our goals are to help our residents:</p>
-    <ul>
+    <h1 class="text-center bg-primary-subtle rounded my-1 py-1 display-4">GME Toolkit</h1>
+    <p class="lead">We hope that these resources will help you engage your residents and fellows in this important civic
+        activity.
+        We want to help our residents, fellows and students:</p>
+    <ul class="lead">
         <li>keep their voting registration up-to-date</li>
         <li>take advantage of mail-in voting when available, and</li>
-        <li>become informed voters</li>
+        <li>become lifelong informed voters</li>
     </ul>
+
+    <p class="small text-end">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmarks"
+            viewBox="0 0 16 16">
+            <path
+                d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v10.566l3.723-2.482a.5.5 0 0 1 .554 0L11 14.566V4a1 1 0 0 0-1-1z" />
+            <path
+                d="M4.268 1H12a1 1 0 0 1 1 1v11.768l.223.148A.5.5 0 0 0 14 13.5V2a2 2 0 0 0-2-2H6a2 2 0 0 0-1.732 1" />
+        </svg>
+        ACGME 2023 CPR
+        <a href="https://www.acgme.org/globalassets/pfassets/programrequirements/cprresidency_2023.pdf" target="_blank"
+            data-bs-toggle="tooltip"
+            data-bs-title="Residents must demonstrate competence in... accountability to patients, society, and the profession"
+            class="link-underline link-underline-opacity-25">IV.B.1.a).(1).(e)</a>,
+        <a href="https://www.acgme.org/globalassets/pfassets/programrequirements/cprresidency_2023.pdf" target="_blank"
+            data-bs-toggle="tooltip"
+            data-bs-title="Residents must demonstrate an awareness of and responsiveness to the larger context and system of health care, including the structural and social determinants of health, as well as the ability to call effectively on other resources to provide optimal health care"
+            class="link-underline link-underline-opacity-25">IV.B.1.f)</a>,
+        <a href="https://www.acgme.org/globalassets/pfassets/programrequirements/cprresidency_2023.pdf" target="_blank"
+            data-bs-toggle="tooltip"
+            data-bs-title="Residents must demonstrate competence in... advocating for quality patient care and optimal patient care systems"
+            class="link-underline link-underline-opacity-25">IV.B.1.f).(1).(c)</a>,
+    </p>
     <div class="row gx-2">
-        <div class="col-lg-5">
+        <div class="col-lg-5 pt-2">
             <div class="px-2">
-                Tips on getting institutional buy-in
+                <h5 class="p-2 rounded bg-success-subtle text-center">Engage your Institution's Government
+                    Affairs/Advocacy Office</h5>
+                <p>The GA office is often excited to partner with initiatives to increase your residents' and fellows'
+                    participation in the political process. Apart from having deep knowledge of the issues, they may be
+                    able to directly support you by:</p>
+                <ol class="list-group list-group-numbered list-group-flush">
+                    <li class="list-group-item">Vetting your recommended websites to confirm non-partisan content</li>
+                    <li class="list-group-item">Editing your email communications</li>
+                    <li class="list-group-item">Providing speakers or content expertise for Q&A with the residents</li>
+                    <li class="list-group-item">Funding food, gift card drawings or other "get-out-the-vote" efforts
+                    </li>
+                    <li class="list-group-item">Creating opportunities for your residents to visit lawmakers and
+                        advocate for positions important to them</li>
+                    <li class="list-group-item">Ensuring alignment between institutional advocacy goals and your efforts
+                    </li>
+                </ol>
+
+                <h5 class="mt-4 p-2 rounded bg-success-subtle text-center">Check with your Legal Department</h5>
+                <p>Voting advocacy efforts may run afoul of regulations that apply to non-profit and other
+                    organizations. For example, endorsing individual candidates or political parties may be problematic.
+                    We recommend you check with your legal department before starting a campaign. Here are some
+                    important considerations to discuss while talking to them:</p>
+                <ol class="list-group list-group-numbered list-group-flush mb-4">
+                    <li class="list-group-item">Your goal is to encourage people to vote; you are specifically
+                        <b>not</b>
+                        telling them who to vote for
+                    </li>
+                    <li class="list-group-item">Partnership with the Government Affairs department will ensure alignment
+                        with institutional goals and help avoid negative media coverage</li>
+                    <li class="list-group-item">They can review the privacy policies and terms of use of your external
+                        resources (e.g. vot-er.org) to minimize risk to the institution or employees</li>
+                </ol>
             </div>
         </div>
         <div class="col-lg-7">
             <div class="p-2">
-                <div class="container bg-primary-subtle rounded py-2">
+                <div class="container bg-success-subtle rounded py-2">
                     <form>
+                        <div class="row">
+                            <div class="col text-center pb-1 mb-2 h5 border-bottom border-success">
+                                e-mail Template Generator
+                            </div>
+                        </div>
                         <div class="row mb-1">
                             <div class="col-5">
                                 <label for="dt1" class="col-form-label">Upcoming election date:</label>
                             </div>
                             <div class="col-auto">
-                                <input type="date" class="form-control" id="dt1" name="dt1">
+                                <input type="date" class="form-control" id="dt1" name="dt1" required>
                             </div>
                             <div class="col-1" data-bs-toggle="tooltip"
                                 data-bs-title="Date of upcoming general election/primary - you can get this from your state's website">
@@ -82,9 +142,16 @@
                                         d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm8.93 4.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
                                 </svg>
                             </div>
-                            <div class="col-auto">
-                                <button class="btn btn-primary btn-sm" id="do_templates" name="do_templates"
-                                    type="button">Go &gt;</button>
+                            <div class="col-2 text-end">
+                                <button class="btn btn-success btn-sm" id="do_templates" name="do_templates"
+                                    type="button">
+                                    Go
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+                                    </svg>
+                                </button>
                             </div>
                         </div>
                     </form>
@@ -227,7 +294,7 @@
 
     <template id="copyButton">
         <div data-bs-toggle="tooltip" data-bs-title="Copy to Clipboard" class="clipDiv">
-            <a href="#!" onclick="copyToClip(this)">
+            <a onclick="copyToClip(this)">
                 <span class="clipBtncopy">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                         class="bi bi-clipboard2" viewBox="0 0 16 16">
