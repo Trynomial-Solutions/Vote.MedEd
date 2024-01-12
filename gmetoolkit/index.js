@@ -11,7 +11,7 @@ function copyToClip(el) {
     // console.log(tTip);
 
     const content = document.getElementById(emailDiv).innerHTML;
-    const txtContent = document.getElementById(emailDiv).textContent;
+    // const txtContent = document.getElementById(emailDiv).textContent;
     try {
         const blobHTML = new Blob([content], { type: 'text/html' });
         const clipHTML = new ClipboardItem({ 'text/html': blobHTML });
@@ -33,10 +33,22 @@ function copyToClip(el) {
             el.querySelector('.clipBtnCopyDone').classList.add('d-none');
             tTip._config.title = "Copy to Clipboard";
         }, 5000);
-    } catch (e) {
-        console.log(e);
-
+    } catch ({ name, message }) {
         // firefox does not support ClipboardItem
+        if (message == "ClipboardItem is not defined") {
+            function listener(e) {
+                e.clipboardData.setData("text/html", content);
+                e.preventDefault();
+            }
+            document.addEventListener("copy", listener);
+            document.execCommand("copy");
+            document.removeEventListener("copy", listener);
+            console.log("Backup Copy triggered");
+        }
+        else {
+            console.log(name);
+            console.log(message);
+        }
     }
 };
 
