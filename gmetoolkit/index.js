@@ -74,6 +74,7 @@ fetch('php/q_electiondate.php').then(response => {
 
 // add clipboard copy button
 addClipCopyBtn('divNvrd');
+addClipCopyBtn('divNextElec');
 
 function addClipCopyBtn(emailDiv) {
     // add copy button to the div specified by emailDivCopyBtn
@@ -120,8 +121,7 @@ document.getElementById('do_templates').addEventListener('click', () => {
             document.getElementById('dt2').focus();
             return;
         }
-        document.getElementById('subsqElecFormatted').textContent = subsequentElec.toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "long", day: "numeric" });
-        document.querySelector("#divNextElec p.d-none").classList.remove('d-none');    // show next election text
+        document.querySelector("#divNextElec p.nextElecTxt").innerHTML = "The <b>next election is on " + subsequentElec.toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "long", day: "numeric" }) + ".</b> Register to vote and sign up for an absentee ballot today!";
     }
     document.getElementById('nextElecBox').classList.remove('d-none');
 });
