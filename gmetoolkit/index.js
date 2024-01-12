@@ -1,3 +1,9 @@
+// restrict dates for dt2
+document.getElementById('dt1').addEventListener('change', () => {
+    document.getElementById('dt2').min = document.getElementById('dt1').value;
+});
+
+
 function copyToClip(el) {
     // https://dev.to/stegriff/copy-rich-html-with-the-native-clipboard-api-5ah8
     const emailDiv = el.dataset.emailtext;
@@ -55,7 +61,7 @@ fetch('php/q_electiondate.php').then(response => {
         // console.log(dates);
         document.getElementById('dt1').value = dates.genElec;
         document.getElementById('nvrdFormatted').textContent = dates.nvrdFormatted;
-        document.getElementById('nvrdPlusOneMonthFormatted').textContent = dates.nvrdPlusOneMonthFormatted;
+        // document.getElementById('nvrdPlusOneMonthFormatted').textContent = dates.nvrdPlusOneMonthFormatted;
         document.getElementById('genElecFormatted').textContent = dates.genElecFormatted;
     });
 });
@@ -70,8 +76,35 @@ function addClipCopyBtn(emailDiv) {
     const clone = copyBtnTemplate.content.cloneNode(true);
     clone.querySelector('a').dataset.emailtext = emailDiv;
     clone.querySelector('.clipDiv').id = emailDiv + "ClipDiv";
-    document.getElementById(emailDiv + 'CopyBtn').appendChild(clone);    
+    document.getElementById(emailDiv + 'CopyBtn').appendChild(clone);
 }
+
+// update dates
+document.getElementById('do_templates').addEventListener('click', () => {
+    const nextElec = new Date(document.getElementById('dt1').value + " 12:00");
+    document.getElementById('nextElecFormatted').textContent = nextElec.toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "long", day: "numeric" });
+
+    const nextElecMinus = new Date(document.getElementById('dt1').value + " 12:00");
+    nextElecMinus.setDate(nextElec.getDate() - (6 * 7));
+    document.getElementById('nextElecMinusFormatted').textContent = nextElecMinus.toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "long", day: "numeric" });
+
+    if (document.getElementById('dt2').value != "") {
+        subsequentElec = new Date(document.getElementById('dt2').value + " 12:00");
+        if (subsequentElec <= nextElec) {
+            alert("Date for subsequent election should be after the upcoming election");
+            document.getElementById('dt2').value = "";
+            document.getElementById('dt2').min = document.getElementById('dt1').value;
+            document.getElementById('dt2').focus();
+            return;
+        }
+        document.getElementById('subsqElecFormatted').textContent = subsequentElec.toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "long", day: "numeric" });
+        document.querySelector("#divNextElec p.d-none").classList.remove('d-none');    // show next election text
+    }
+    document.getElementById('nextElecBox').classList.remove('d-none');
+    console.log(nextElec);
+    console.log(nextElecMinus);
+    console.log(subsequentElec);
+});
 
 // enable tooltips
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')

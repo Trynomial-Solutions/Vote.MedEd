@@ -135,11 +135,11 @@
                         <p>Your vote matters!</p>
                     </div>
                 </div>
-                <div class="container py-2 rounded bg-warning-subtle mb-3">
+                <div class="container py-2 rounded bg-warning-subtle mb-3 d-none" id="nextElecBox">
                     <div class="border-primary border-bottom pb-2">
                         <div class="row">
                             <div class="col-11">
-                                <h6>e-mail to send on <span id="nvrdPlusOneMonthFormatted"></span></h6>
+                                <h6>e-mail to send on <span id="nextElecMinusFormatted"></span></h6>
                             </div>
                             <div class="col-1" id="divNextElecCopyBtn">
                             </div>
@@ -147,7 +147,7 @@
                     </div>
                     <div class="pt-2" id="divNextElec">
                         <p>Dear Residents & Fellows,</p>
-                        <p>The *** election is just around the corner, and we want to make sure you have the
+                        <p>The <span id="nextElecFormatted"></span> election is just around the corner, and we want to make sure you have the
                             right information to engage this year.</p>
                         <p>First, make sure that you are registered to vote to exercise your civic duty! Many of
                             us have moved within the past year and may have forgotten to update our voter
@@ -167,7 +167,7 @@
                             <li>Local races: <a href='https://www.vote411.org/'>https://www.vote411.org/</a>
                             </li>
                         </ul>
-                        <p>The <b>next election is the *** on ***.</b> Register to vote and sign up for an
+                        <p class="d-none">The <b>next election is on <span id="subsqElecFormatted"></span>.</b> Register to vote and sign up for an
                             absentee ballot today!</p>
                         <p>Your vote matters!</p>
                     </div>
