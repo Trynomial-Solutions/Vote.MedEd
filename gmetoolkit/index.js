@@ -97,6 +97,7 @@ fetch('php/q_electiondate.php').then(response => {
 // add clipboard copy button
 addClipCopyBtn('divNvrd');
 addClipCopyBtn('divNextElec');
+addClipCopyBtn('divCSuite');
 
 function addClipCopyBtn(emailDiv) {
     // add copy button to the div specified by emailDivCopyBtn
